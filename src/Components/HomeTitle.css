@@ -6,6 +6,48 @@
         flex-direction: column;
     }
     .Home_Title-layout__heading{
-        
+        width: 60%;
+        padding:5vh;
+        font-size: 5vh;
+        margin-left: 5%;
     }
+    .Home_Title-layout__searchHotels{
+        font-size: 3vh;
+        padding:3vh;
+        border-radius: 10%;
+        
+       
+    }
+    .Home_Title-layout__searchHotels input{
+        font-size: 3vh;
+        padding:4vh;
+        width: 62%;
+        margin-left:10%;
+        border-radius: 2%;
+        border:none;
+        background-color: rgb(133, 133, 133);
+        font-family: sans-serif;
+        color:white;
+        font-weight: 500;
+       
+    }
+    .Home_Title-layout__searchHotels input:focus{
+     border:none;
+       
+    }
+    .Home_Title-layout__searchHotels button{
+        padding-left: 13vh;
+        padding-right: 13vh;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        margin-left: 10%;
+        background-color: rgb(15, 219, 219);
+        font-size: 2.3vh;
+        border-radius: 4%;
+        border:none;
+        font-weight: 700;
+        color:white;
+        word-spacing: 10%;
+    }
+
 }

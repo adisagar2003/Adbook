@@ -6,11 +6,17 @@ function Home_Title() {
         
         
    <div className='Home_Title-layout__heading'>
-    
+    Find the Best Hotels Around
    </div>
           
-   <div>
-    I say g
+   <div className='Home_Title-layout__searchHotels'>
+    
+<input placeholder='Search here now...'  />
+<br>
+</br>
+<br>
+</br>
+<button>Find Hotels</button>
    </div>
         
         
