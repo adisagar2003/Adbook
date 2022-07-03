@@ -1,0 +1,39 @@
+.Rooms__header{
+display: flex;
+justify-content: center;
+margin-top: 3vh;
+font-weight: 500;
+font-size: 6vh;
+color: rgb(1, 43, 43);
+}
+.Rooms__hotelCarousal__button{
+    
+
+}
+
+.Rooms__hotelCarousal__card{
+    min-width: 42vh;
+    min-height: 44vh;
+    max-width: 42vh;
+    max-height: 44vh;
+    box-shadow: 1px 1px 10px black;
+    border-radius: 3%;
+
+}
+
+.Rooms__hotelCarousal{
+    display: flex;
+    justify-content: space-around;
+    gap:10vh;
+}
+
+@media only screen and (max-width:500px) {
+    .Rooms__hotelCarousal{
+        display: flex;
+        flex-direction: column;
+
+        justify-content: space-around;
+        margin-left: 10%;
+        gap:10vh;
+    }
+}
