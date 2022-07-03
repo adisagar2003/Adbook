@@ -1,0 +1,51 @@
+.Home-layout{
+    background-color: rgb(1, 58, 58);
+    min-height: 100vh;
+}
+.Home-layout__navbar{
+    display: flex;
+    
+}
+.Home-layout__navbar__logo{
+    color:white;
+}
+.Home-layout__hamburger-icon{
+display: none;
+  }
+.Home-layout__navbar__side{
+    display: flex;
+    gap:10vh;
+    font-weight: 500;
+    color:white;
+    padding:4vh;
+    float: right;
+margin-left: auto;
+}
+.Home-layout__navbar__side__signIn{
+    font-weight: 400;
+padding-left: 3vh;
+padding-right: 3vh;
+border: 1px solid aqua;
+
+    padding: auto;
+    color: aqua;
+    
+}
+.Home-layout__searchHotels{
+    border:1px solid white;
+width:50%;
+}
+
+@media only screen and (max-width: 600px){
+    .Home-layout__navbar__side{
+    display: none;
+        
+    }
+  .Home-layout__hamburger-icon{
+    padding:3vh;
+    margin-left: auto;
+    font-weight: 600;
+    font-size: 23px;
+    color:white;
+  }
+}
