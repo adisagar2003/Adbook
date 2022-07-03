@@ -1,0 +1,11 @@
+@media only screen and (max-width:500px) {
+    .Home_Title-layout{
+       color:white;
+       font-weight:600;
+        display: flex;
+        flex-direction: column;
+    }
+    .Home_Title-layout__heading{
+        
+    }
+}

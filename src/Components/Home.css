@@ -42,10 +42,61 @@ width:50%;
         
     }
   .Home-layout__hamburger-icon{
+    display: block;
     padding:3vh;
     margin-left: auto;
     font-weight: 600;
     font-size: 23px;
     color:white;
   }
+
+ .active a{
+
+ }
+}
+.Home-layout__sidebar{
+    position: absolute;
+    right:0;
+    padding:4vh;
+    width: 0%;
+    top:0;
+    height: 0%;
+    display: none;
+    flex-direction: column;
+    gap:10vh;
+    transition: 2s;
+    overflow: hidden;
+}
+
+.active{
+    position: absolute;
+    right:0;
+    padding:4vh;
+    width: 30%;
+    top:0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:10vh;
+    overflow: hidden;
+    background-color: rgba(0, 255, 255, 0.441);
+    
+}
+.active a{
+    font-weight: 600;
+    padding:1vh;
+}
+.Home-layout__sidebar__button{
+    background-color: rgba(255, 0, 0, 0.242);
+    position: absolute;
+    right:0;
+    border-radius: 50%;
+    color: black;
+  
+ 
+}
+.active a:hover{
+    font-weight: 600;
+    padding:1vh;
+
 }
