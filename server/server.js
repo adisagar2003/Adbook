@@ -35,3 +35,15 @@ UserModel.create(req.body).then(()=>{
 server.listen(process.env.PORT||5000,()=>{
     console.log('Connected to backend')
 })
+
+server.post("/login", async (req,res)=>{
+   const User =await UserModel.findOne({username:req.body.username,password:req.body.password})
+   if (User){
+    console.log(User)
+    res.send("user found")
+
+   }
+   else{
+    res.send("Error")
+   }
+})
