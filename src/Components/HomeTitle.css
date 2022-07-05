@@ -108,7 +108,8 @@
  .Home_Title-layout__heading{
      width: 40%;
      padding:5vh;
-     font-size: 5vh;
+     height: 20%;
+     font-size: 9vh;
      margin-left: 8%;
  }
  .Home_Title__image{

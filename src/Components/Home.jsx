@@ -3,6 +3,7 @@ import "./Home.css";
 import hotelLogo from './icons/alex-3.svg';
 import {BiMenu} from 'react-icons/bi'
 import Home_Title from './Home_Title';
+import {Link} from 'react-router-dom'
 function Home() {
     const navReference = useRef(null);
     const buttonReference = useRef(null);
@@ -17,13 +18,15 @@ function Home() {
     <div className='Home-layout'>
       <div  className='Home-layout__navbar'>
         <a class='Home-layout__navbar__logo'>
+          <Link to="/">
         <img src={hotelLogo} alt="hotel Logo" width="70" height="70" />
-
+        </Link>
         </a>
         <div className='Home-layout__navbar__side' >
-            <a>Home</a>
-            <a>About</a>
-            <a>Contact</a>
+      
+            <a> Home</a>
+           
+        <Link to="/signIn">   <a>Contact</a></Link> 
             <a className='Home-layout__navbar__side__signIn'>Sign in</a>
     
         </div>
