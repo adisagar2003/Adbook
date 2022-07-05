@@ -9,6 +9,7 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 server.use(cookieParser());
 dotenv.config();
+const verifyToken = require('./verifyToken')
 mongoose.connect(MONGO="mongodb+srv://adi:sahara123@cluster0.drtgg.mongodb.net/hotel-booking-app?retryWrites=true&w=majority").then(()=>{
     console.log('mongoDB database connected')
 }).catch((error)=>{
@@ -18,7 +19,10 @@ console.log('error',error)
 server.get('/',(req,res)=>{
     res.send("test")
 })
-
+//checking authorization
+server.get('/useAuth',verifyToken,(req,res)=>{
+    res.send("hello user hehe")
+})
 server.post('/add_hotel',(req,res)=>{
     HotelModel.create(req.body).then(()=>{
         res.json({
