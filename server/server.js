@@ -26,7 +26,11 @@ server.post('/add_hotel',(req,res)=>{
 })
 
 server.post("/register",(req,res)=>{
-
+UserModel.create(req.body).then(()=>{
+    res.json({
+        submitted:true
+    })
+})
 })
 server.listen(process.env.PORT||5000,()=>{
     console.log('Connected to backend')
