@@ -1,7 +1,32 @@
 .SignIn-layout{
-border:1px solid black;
-    min-height: 42vh;
-    max-height: 42vh;
-    min-width: 24vh;
-    max-width: 24vh;
+  display: flex;
+  padding:3vh;
+}
+.SignIn-layout__form{
+    display: flex;
+    flex-direction: column;
+    gap:4vh;
+    padding-left: 50vh;
+}
+.SignIn-layout__form input{
+  padding:2vh;
+    background-color: rgb(252, 252, 252);
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: rgb(184, 184, 184);
+}
+
+@media only screen and (max-width:500px) {
+ .SignIn-layout{
+    display: flex;
+    flex-direction: column;
+    padding:0vh;
+ }
+ .SignIn-layout__form{
+    display: flex;
+    flex-direction: column;
+    gap:4vh;
+    padding-left: 0vh;
+}
+
 }

@@ -6,6 +6,7 @@ const HotelModel = require("./models/HotelSchema")
 server.use(express.json());
 const UserModel = require('./models/UserSchema');
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 server.use(cookieParser());
 dotenv.config();
@@ -15,6 +16,7 @@ mongoose.connect(MONGO="mongodb+srv://adi:sahara123@cluster0.drtgg.mongodb.net/h
 }).catch((error)=>{
 console.log('error',error)
 })
+server.use(cors());
 
 server.get('/',(req,res)=>{
     res.send("test")
@@ -26,7 +28,8 @@ server.get('/useAuth',verifyToken,(req,res)=>{
 server.post('/add_hotel',(req,res)=>{
     HotelModel.create(req.body).then(()=>{
         res.json({
-            submitted:true
+            submitted:true,
+            
         })
     })
 })
@@ -53,7 +56,10 @@ server.post("/login", async (req,res)=>{
        
     res.cookie("access_token",token,{
         httpOnly:true,
-    }).send("user found")
+    }).json({
+        user:User,
+        token:token
+    })
 
    }
    else{
