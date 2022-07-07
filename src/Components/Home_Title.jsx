@@ -1,6 +1,12 @@
-import React from 'react'
-import './HomeTitle.css'
+import React, { useState } from 'react'
+import axios from 'axios';
+import './HomeTitle.css';
+import { useNavigate } from 'react-router-dom';
 function Home_Title() {
+  const history = useNavigate();
+  const [places,setPlaces]= useState('');
+  const [loading,setLoading] = useState(true);  
+
   return (
     <div className='Home_Title-layout'>
         
@@ -11,12 +17,12 @@ function Home_Title() {
           <div style={{display:"flex"}} >
    <div className='Home_Title-layout__searchHotels'>
     
-<input placeholder='Search here now...'  />
+<input placeholder='Search here now...' onChange={(e)=>setPlaces(e.target.value)} />
 <br>
 </br>
 <br>
 </br>
-<button>Find Hotels</button>
+<button onClick={()=>history(`/place/${places}`)}>Find Hotels</button>
    </div>
         <div className="Home_Title__image">
      

@@ -6,8 +6,9 @@ import Rooms from './Components/Rooms'
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import SignIn from './Components/Auth/SignIn';
 import Room_Details from './Components/Hotel/Room_Details';
-function App() {
+import Room_Search from './Components/Hotel/Room_Search';
 
+function App() {
 
   return (
     <BrowserRouter>
@@ -16,10 +17,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/roomDetails" element={<Room_Details />} />
-      </Routes>
-      <Routes>
-    <Route path="/" element={<Rooms />} />
-      </Routes>
+        <Route path="/hotels/place" element={<Room_Search />} />
+     
+     
+    <Route path="/Rooms/" element={<Rooms />} />
+    <Route exact path="/place/:place" element={<Room_Search />} />
+    </Routes>
+     
+
     </div>
     </BrowserRouter>
   )

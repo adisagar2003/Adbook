@@ -35,9 +35,9 @@ console.log('err')
 
 //getting hotels by location
 
-router.get('/city/:city', async (req,res)=>{
+router.get('/place/:city', async (req,res)=>{
     console.log(req.params['city']);
-    HotelModel.find({city:req.params['city']}).then((hotels)=>{
+    HotelModel.find({city:(req.params['city']).toUpperCase()}).then((hotels)=>{
 console.log('hotels',hotels);
 res.json({
     hotels
