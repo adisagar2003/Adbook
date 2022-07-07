@@ -26,7 +26,7 @@ function Home() {
       
             <a> Home</a>
            
-        <Link to="/signIn">   <a>Contact</a></Link> 
+     <a>   <Link to="/room_details">   Rooms</Link> </a>
             <a className='Home-layout__navbar__side__signIn'>Sign in</a>
     
         </div>

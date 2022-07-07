@@ -1,6 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./SignIn.css"
+import axios from 'axios';
+
 function SignIn() {
+  //States
+  const [username,setUsername] = useState('');
+  const [password,setPassword] = useState('');
+
+  //Login function
+  const Login = () =>{
+    setUsername('');
+    setPassword('');
+    axios.post("http://localhost:5000/login",{
+      username:username,
+      password:password
+    }).then((res)=>{
+      console.log(res);
+      document.cookie="access_token ="+res.data.token;
+    })
+  }
+  
   return (
     <div>
       <div className='SignIn-layout'>
@@ -10,9 +29,9 @@ function SignIn() {
 
         <div className='SignIn-layout__form'>
       <h1 style={{textDecorationColor:"darkgreen"}}>Sign in </h1>
-      <input placeholder='username' />
-      <input placeholder='password' />
-      <button>Login</button>
+      <input value={username} placeholder='username' onChange={(e)=>setUsername(e.target.value)} />
+      <input type="password" value={password} placeholder='password'  onChange={(e)=>setPassword(e.target.value)}/>
+      <button onClick={Login} >Login</button>
         </div>
         </div>
     </div>

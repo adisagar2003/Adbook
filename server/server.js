@@ -6,63 +6,41 @@ const HotelModel = require("./models/HotelSchema")
 server.use(express.json());
 const UserModel = require('./models/UserSchema');
 const jwt = require('jsonwebtoken');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
-server.use(cookieParser());
-dotenv.config();
-const verifyToken = require('./verifyToken')
 mongoose.connect(MONGO="mongodb+srv://adi:sahara123@cluster0.drtgg.mongodb.net/hotel-booking-app?retryWrites=true&w=majority").then(()=>{
     console.log('mongoDB database connected')
 }).catch((error)=>{
 console.log('error',error)
 })
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+server.use(cookieParser());
+dotenv.config();
+//Routing data
+const roomRoute = require('./routes/Room');
+const profileRoute = require('./routes/User');
+
+const verifyToken = require('./verifyToken')
+
 server.use(cors());
 
+//Routes
+
+server.use('/room',roomRoute);
+server.use('/user',profileRoute);
 server.get('/',(req,res)=>{
-    res.send("test")
+ res.json({sample:'response'})
+ 
+  
 })
 //checking authorization
 server.get('/useAuth',verifyToken,(req,res)=>{
-    res.send("hello user hehe")
-})
-server.post('/add_hotel',(req,res)=>{
-    HotelModel.create(req.body).then(()=>{
-        res.json({
-            submitted:true,
-            
-        })
-    })
+    res.send("helloins user hehe")
 })
 
-server.post("/register",(req,res)=>{
-UserModel.create(req.body).then(()=>{
-    res.json({
-        submitted:true
-    })
-})
-})
+
+
+//listening server here
 server.listen(process.env.PORT||5000,()=>{
     console.log('Connected to backend')
 })
 
-server.post("/login", async (req,res)=>{
-   const User =await UserModel.findOne({username:req.body.username,password:req.body.password})
-   if (User){
-    console.log(User);
-    const token = jwt.sign({id:User._id,username:User.username,email:User.email},process.env.JWT);
-    
-    console.log(token
-        )
-       
-    res.cookie("access_token",token,{
-        httpOnly:true,
-    }).json({
-        user:User,
-        token:token
-    })
-
-   }
-   else{
-    res.send("Error")
-   }
-})
