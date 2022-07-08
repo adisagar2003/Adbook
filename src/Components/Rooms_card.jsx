@@ -5,8 +5,10 @@ import {BsWifi} from 'react-icons/bs'
 import { ImStarEmpty } from "react-icons/im";
 import {Link} from 'react-router-dom';
 import { useFetch } from '../Hooks/useFetch';
+import {useNavigate} from 'react-router-dom';
 function Rooms_card(props) {
   const hotelContainer = useRef(null);
+  let navigate = useNavigate();
 
   return (
     <div class="Rooms__hotelCarousal__card" ref={hotelContainer}>
@@ -28,7 +30,7 @@ function Rooms_card(props) {
 <BsWifi />
 
                 </div>
-                <Link to="/roomDetails"><button  className="Rooms__hotelCarousal__card__button" onClick={(e)=>console.log(hotelContainer.current)}>Book Now</button></Link>
+            <button  className="Rooms__hotelCarousal__card__button" onClick={(e)=>navigate(`/room/${props.data._id}`)}>Book Now</button>
     </div>
   )
 }

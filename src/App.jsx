@@ -19,11 +19,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signIn" element={<SignIn />} />
-        <Route path="/roomDetails" element={<Room_Details />} />
+ 
         <Route path="/hotels/place" element={<Room_Search />} />
      <Route path="/signIn" element={<SignIn />} />
         <Route path='/hotels' element={<Room_all />} />
     <Route path="/Rooms/" element={<Rooms />} />
+    <Route exact path='/room/:id' element={<Room_Details />} />
     <Route exact path="/place/:place" element={<Room_Search />} />
     </Routes>
      

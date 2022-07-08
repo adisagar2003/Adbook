@@ -10,7 +10,7 @@ function Room_all() {
 <div style={{display:'flex',gap:20,justifyContent:'space-around',padding:60}}>
 {allData.data.hotels.map((hotel)=>{
     return(
-        <Rooms_card heading={hotel.name} rating={hotel.rating} link={hotel.photos} />
+        <Rooms_card heading={hotel.name} data={hotel} rating={hotel.rating} link={hotel.photos} />
     )
 })}
 
