@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./SignIn.css"
 import axios from 'axios';
-
+import store from '../../store';
 function SignIn() {
   //States
   const [username,setUsername] = useState('');
@@ -11,17 +11,35 @@ function SignIn() {
   const Login = () =>{
     setUsername('');
     setPassword('');
-    axios.post("http://localhost:5000/login",{
+    axios.post("http://localhost:5000/user/login",{
       username:username,
       password:password
     }).then((res)=>{
       console.log(res);
-      document.cookie="access_token ="+res.data.token;
+      if (res.data !="Error"){
+        document.cookie="access_token ="+res.data.token;
+        store.dispatch({
+          type:"LOGIN_SUCCESS",
+          payload:{
+            user:username,
+            cookie:res.data.token
+          }
+         })
+         console.log(store.getState())
+  
+      }
+      else{
+        store.dispatch({
+          type:"LOGOUT_SUCCESS"
+        })
+        console.log(store.getState())
+      }
+   
     })
   }
   
   return (
-    <div>
+    <div style={{padding:40}}>
       <div className='SignIn-layout'>
         <div className='SignIn-layout__image'>
 <img src="https://images.unsplash.com/photo-1588097247274-a174dd59f20d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZGFyayUyMGdyZWVufGVufDB8fDB8fA%3D%3D&w=1000&q=80" width={400} height={400} />

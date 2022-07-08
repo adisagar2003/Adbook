@@ -1,6 +1,9 @@
 .SignIn-layout{
   display: flex;
   padding:3vh;
+  background-color: white;
+  width: 70%;
+
 }
 .SignIn-layout__form{
     display: flex;

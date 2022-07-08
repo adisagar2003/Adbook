@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const UserModel = require('../models/UserSchema');
 const jwt = require('jsonwebtoken');
+const verifyToken = require('../verifyToken');
 router.get('/profile',(req,res)=>{
     res.json({
         data:"profile_data_goes_here"

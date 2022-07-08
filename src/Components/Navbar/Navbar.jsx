@@ -3,7 +3,17 @@ import "./Navbar.css";
 import svgIcon from '../icons/alex-3.svg';
 import {Link} from 'react-router-dom    '
 import Rooms_card from '../Rooms_card';
+import store from '../../store';
+import {connect} from 'react-redux';
+function mapStateToProps(state){
+
+console.log(state)
+return state;
+
+}
+
 function Navbar() {
+  {console.log(store.getState())}
   return (
    <div className='Navbar__body'>
     <div className='Navbar__body__logo'>
@@ -12,11 +22,11 @@ function Navbar() {
 <Link to='/' style={{ color: 'inherit', textDecoration: 'inherit'}}><a>Home</a></Link>
 
 <Link to='/hotels' style={{ color: 'inherit', textDecoration: 'inherit'}}><a>Hotels</a></Link>
-<a>SignIn</a>
+<Link to='/signIn' style={{ color: 'inherit', textDecoration: 'inherit'}} ><a>{store.getState().logged?<span>{store.getState().user}</span>:<span>SignIn</span>}</a></Link>
 
 </div>
    </div>
   )
 }
 
-export default Navbar
+export default connect(mapStateToProps)(Navbar)
