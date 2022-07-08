@@ -1,26 +1,38 @@
-import React from 'react'
+import React ,{useEffect, useState} from 'react'
 import axios from 'axios'
 import {useParams} from 'react-router-dom';
+import { useFetch } from '../../Hooks/useFetch';
+import Rooms_card from '../Rooms_card';
 function Room_Search() {
+  
     const params = useParams();
+    
+      const [response,loaded] = useFetch(params.place);
 
+   
+   
+  const Sample = ()=>{
+    return (
+
+      <h1>A</h1>
+    )
+  }
     const Hotels=()=>{
-        axios.post(`http://localhost:5000/room/place/${(params.place).toUpperCase().replace(/ /g,'')}`).then((response)=>{
-            return (
-                <div>
-                  <h1>{JSON.stringify(response)}</h1>
-                </div>
-              )
-        }).catch(()=>{
-            return (
-                <h1>Error</h1>
-            )
-        })
-      
+      return(
+       <h1>Hotels</h1>
+      )
       }
   return (
     <div>Room_Search {(params.place).toUpperCase().replace(/ /g,'')}
-    <Hotels />
+    <div style={{display:'flex',flexDirection:'column'}}>
+      {loaded?
+response.data.hotels.map((hotel)=>{
+  return (<div>{hotel.name}</div>)
+})
+
+    :<h1>Loading...</h1>}
+
+    </div>
     </div>
     
   )

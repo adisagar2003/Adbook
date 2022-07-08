@@ -33,6 +33,21 @@ console.log('err')
 
 })
 
+//getting all hotels
+
+router.get('/find', async (req,res)=>{
+
+    HotelModel.find({}).then((hotels)=>{
+console.log('hotels',hotels);
+res.json({
+    hotels
+})
+
+  }).catch(
+console.log('err')
+  )
+
+})
 //getting hotels by location
 
 router.get('/place/:city', async (req,res)=>{

@@ -16,34 +16,7 @@ function Home() {
   return (
     
     <div className='Home-layout'>
-      <div  className='Home-layout__navbar'>
-        <a class='Home-layout__navbar__logo'>
-          <Link to="/">
-        <img src={hotelLogo} alt="hotel Logo" width="70" height="70" />
-        </Link>
-        </a>
-        <div className='Home-layout__navbar__side' >
-      
-            <a> Home</a>
-           
-     <a>   <Link to="/room_details">   Rooms</Link> </a>
-            <a className='Home-layout__navbar__side__signIn'>Sign in</a>
     
-        </div>
-     
-        <div className='Home-layout__hamburger-icon' onClick={toggleSidebar}>
-<BiMenu />
-        </div>
-        
-     
-
-      </div>
-      
-<div className='Home-layout__sidebar' ref={navReference}>
-<a>Home<button ref={buttonReference} class='Home-layout__sidebar__button' onClick={()=>navReference.current.classList.remove("active")}>X</button></a>
-            <a>About</a>
-            <a>Contact</a>
-        </div>
 <Home_Title />
     </div>
   )

@@ -4,9 +4,10 @@ import {GiWaterPolo,GiWireframeGlobe,GiZigzagTune} from 'react-icons/gi';
 import {BsWifi} from 'react-icons/bs'
 import { ImStarEmpty } from "react-icons/im";
 import {Link} from 'react-router-dom';
-
+import { useFetch } from '../Hooks/useFetch';
 function Rooms_card(props) {
   const hotelContainer = useRef(null);
+
   return (
     <div class="Rooms__hotelCarousal__card" ref={hotelContainer}>
                 <div class='Rooms__hotelCarousal__card__image'>

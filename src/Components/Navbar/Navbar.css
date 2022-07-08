@@ -1,0 +1,31 @@
+.Navbar__body{
+    display: flex;
+    background-color: rgb(9, 41, 49);
+    width: 100%;
+    
+
+}
+.Navbar__body__side-items{
+    display: flex;
+margin-left: 70%;
+color: white;
+padding: 3%;
+gap:10%;
+
+
+}
+.Navbar__body__logo{
+    margin-top: 2%;
+}
+.Navbar__body__side-items a{
+  
+    padding: 4%;
+
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.Navbar__body__side-items a:hover{
+  
+    transition: 0.5s;
+   text-decoration: underline;
+   cursor: pointer;
+}
