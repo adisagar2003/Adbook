@@ -24,9 +24,10 @@ const UserSchema = new mongoose.Schema({
    default: Date.now(),
         required:true
     },
-    role:{
-        type:String,
-        required:true
+    admin:{
+        type:Boolean,
+        required:true,
+        default:false
     }
 });
 const UserModel = mongoose.model("User",UserSchema);

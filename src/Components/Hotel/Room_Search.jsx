@@ -26,8 +26,10 @@ function Room_Search() {
     <div>Room_Search {(params.place).toUpperCase().replace(/ /g,'')}
     <div style={{display:'flex',flexDirection:'column'}}>
       {loaded?
+
+   
 response.data.hotels.map((hotel)=>{
-  return (<div>{hotel.name}</div>)
+  return (  <Rooms_card heading={hotel.name} data={hotel}  price={hotel.price} rating={hotel.rating} link={hotel.photos} />)
 })
 
     :<h1>Loading...</h1>}
