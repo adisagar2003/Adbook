@@ -1,6 +1,7 @@
 .Home-layout{
-    background-color: rgb(1, 58, 58);
+    background-color: rgb(14, 14, 14);
     min-height: 100vh;
+
 }
 .Home-layout__navbar{
     display: flex;
