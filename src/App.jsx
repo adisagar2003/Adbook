@@ -9,6 +9,7 @@ import Room_Details from './Components/Hotel/Room_Details';
 import Room_Search from './Components/Hotel/Room_Search';
 import Navbar from './Components/Navbar/Navbar';
 import Room_all from './Components/Hotel/Room_all';
+import Register from './Components/Auth/Register';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
     <Route path="/Rooms/" element={<Rooms />} />
     <Route exact path='/room/:id' element={<Room_Details />} />
     <Route exact path="/place/:place" element={<Room_Search />} />
+    <Route exact path='/register' element={<Register />} />
     </Routes>
      
 
