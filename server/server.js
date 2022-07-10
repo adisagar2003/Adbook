@@ -29,6 +29,7 @@ server.use('/room',roomRoute);
 server.use('/user',profileRoute);
 server.get('/',(req,res)=>{
  res.json({sample:'response'})
+ res.send("a")
  
   
 })

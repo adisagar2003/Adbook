@@ -5,7 +5,7 @@ export default function useFetchAll(){
     const [allData,setAllData] = useState({res:'none'});
     const [allLoaded,setAllLoaded] = useState(false);
     useEffect(()=>{
-        axios.get('http://localhost:5000/room/find').then((response)=>{
+        axios.get('https://adbook-server.herokuapp.com/room/find').then((response)=>{
             setAllData(response)
             setAllLoaded(true)
         }).catch((err)=>{

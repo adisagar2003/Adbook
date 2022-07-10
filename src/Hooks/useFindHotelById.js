@@ -5,7 +5,7 @@ export default function useFindHotelById(id){
     const [hotel,setHotel] = useState({hotel:'no'});
     
     useEffect(()=>{
-        axios.get(`http://localhost:5000/room/find/${id}`)
+        axios.get(`https://adbook-server.herokuapp.com/room/find/${id}`)
         .then((response)=>{
 setHotel(response)
 setLoaded(true);

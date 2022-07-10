@@ -27,7 +27,7 @@ function Room_Search() {
     <div style={{display:'flex',flexDirection:'column'}}>
       {loaded?
 
-   
+        
 response.data.hotels.map((hotel)=>{
   return (  <Rooms_card heading={hotel.name} data={hotel}  price={hotel.price} rating={hotel.rating} link={hotel.photos} />)
 })
