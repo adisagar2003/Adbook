@@ -19,7 +19,30 @@ function SignIn() {
   const [password,setPassword] = useState('');
   const [email,setEmail] = useState('');
   const [confirmPassword,setConfirmPassword] = useState('');
+  const [success,setSuccess] = useState(false);
+  const [error,setError] = useState(false);
+//Register function 
+const Register = ()=>{
+   if (password==confirmPassword){
+    const newUser = {
+        username:username,
+        password:password,
+        email:email
+    }
+    axios.post('http://localhost:5000/user/register',newUser).then((res)=>{
 
+    if (res.data.dataTransfer=='failed'){
+setError(true)
+    }
+else{
+    setError(false);
+    setSuccess(true);
+}
+
+console.log(res);
+    })
+   }
+}
   //Login function
   const Login = (props) =>{
  
@@ -141,15 +164,27 @@ function SignIn() {
 
                 </div>
           <div class="w-full mx-auto px-20 flex-col items-center space-y-6">
-            <h1 class="text-white font-bold text-4xl font-sans">Sign In </h1>
-            <p class="text-white mt-1">The simplest app to use</p>
+            <h1 class="text-white font-bold text-4xl font-sans">Register </h1>
+           
             <div class="flex justify-center lg:justify-start mt-6">
-                <a href="#" class="hover:bg-indigo-700 hover:text-white hover:-translate-y-1 transition-all duration-500 bg-white text-indigo-800 mt-4 px-4 py-2 rounded-2xl font-bold mb-2">Get Started</a>
+                <a href="#" class="hover:bg-indigo-700 hover:text-white hover:-translate-y-1 transition-all duration-500 bg-white text-indigo-800 mt-4 px-4 py-2 rounded-2xl font-bold mb-2">Back to Home</a>
             </div>
           </div>
         </div>
         <div class="flex w-full lg:w-1/2 justify-center items-center bg-white space-y-8">
           <div class="w-full px-8 md:px-32 lg:px-24">
+            {success?<div class="flex bg-green-100 rounded-lg p-4 mb-4 text-sm text-green-700" role="alert">
+        <svg class="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+        <div>
+            <span class="font-medium"> Alert!</span> User is registered now
+        </div>
+    </div>:<a></a>}
+    {error?<div class="flex bg-red-100 rounded-lg p-4 mb-4 text-sm text-red-700" role="alert">
+        <svg class="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+        <div>
+            <span class="font-medium"> Alert!</span> User is not registered...Try again
+        </div>
+    </div>:<a></a>}
           <div class="bg-white rounded-md shadow-2xl p-5">
             <h1 class="text-gray-800 font-bold text-2xl mb-1">Register</h1>
             <p class="text-sm font-normal text-gray-600 mb-8"></p>
@@ -159,7 +194,7 @@ function SignIn() {
             </div>
             <div class="flex items-center border-2 mb-8 py-2 px-3 rounded-2xl">
            
-           <input id="text" type="text" value={username} placeholder='Email' onChange={(e)=>setEmail(e.target.value)} class=" pl-2 w-full outline-none border-none" name="email"  />
+           <input id="text" type="text" value={email} placeholder='Email' onChange={(e)=>setEmail(e.target.value)} class=" pl-2 w-full outline-none border-none" name="email"  />
          </div>
             <div class="flex items-center border-2 mb-12 py-2 px-3 rounded-2xl ">
              
@@ -168,11 +203,11 @@ function SignIn() {
             </div>
             <div class="flex items-center border-2 mb-12 py-2 px-3 rounded-2xl ">
              
-             <input class="pl-2 w-full outline-none border-none" type="password" value={password} placeholder='Confirm Password'  onChange={(e)=>setConfirmPassword(e.target.value)} />
+             <input class="pl-2 w-full outline-none border-none" type="password" value={confirmPassword} placeholder='Confirm Password'  onChange={(e)=>setConfirmPassword(e.target.value)} />
              
            </div>
            
-            <button  onClick={Login} class="block w-full bg-indigo-600 mt-5 py-2 rounded-2xl hover:bg-indigo-700 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2">Register</button>
+            <button  onClick={Register} class="block w-full bg-indigo-600 mt-5 py-2 rounded-2xl hover:bg-indigo-700 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2">Register</button>
             <div class="flex justify-between mt-4">
            <Link to='/'>   <span class="text-sm ml-2 hover:text-blue-500 cursor-pointer hover:-translate-y-1 duration-500 transition-all">Back to home</span></Link>
 
