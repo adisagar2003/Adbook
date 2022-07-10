@@ -34,7 +34,8 @@ function SignIn() {
           type:"LOGIN_SUCCESS",
           payload:{
             user:res.data,
-            cookie:res.data.token
+            cookie:res.data.token,
+            admin:res.data.user.admin
           }
          })
          console.log(store.getState())

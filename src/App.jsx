@@ -10,8 +10,14 @@ import Room_Search from './Components/Hotel/Room_Search';
 import Navbar from './Components/Navbar/Navbar';
 import Room_all from './Components/Hotel/Room_all';
 import Register from './Components/Auth/Register';
-
-function App() {
+import Admin from './Components/Admin/Admin'
+import Protected from './Protected';
+import store from './store';
+import {connect} from 'react-redux'
+function mapStateToProps(state){
+  return state
+}
+function App(props) {
 
   return (
     <BrowserRouter>
@@ -28,6 +34,7 @@ function App() {
     <Route exact path='/room/:id' element={<Room_Details />} />
     <Route exact path="/place/:place" element={<Room_Search />} />
     <Route exact path='/register' element={<Register />} />
+    <Route exact path='/admin' element={<Protected isLoggedIn={store.getState().isAdmin}><Admin /></Protected>} />
     </Routes>
      
 
@@ -36,4 +43,4 @@ function App() {
   )
 }
 
-export default App
+export default connect(mapStateToProps)(App)

@@ -59,7 +59,7 @@ function Room_Checkout(props) {
  
  
                  </div>
-                 <div class="text-center cursor-pointer duration-150 hover:bg-neutral-200 py-0.5 bg-neutral-100 text-green-400 font-semibold rounded-lg mt-3">Buy now</div>
+                 <div onClick={()=>console.log('hotel booked')} class="text-center cursor-pointer duration-150 hover:bg-neutral-200 py-0.5 bg-neutral-100 text-green-400 font-semibold rounded-lg mt-3">Book</div>
              </div>
  
          

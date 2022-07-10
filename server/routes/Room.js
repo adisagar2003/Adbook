@@ -1,6 +1,20 @@
 const express=require('express');
 const HotelModel = require('../models/HotelSchema');
 const UserModel = require('../models/UserSchema');
+const nodemailer = require('nodemailer');
+
+
+const transporter = nodemailer.createTransport(   {
+  host:'mail.yahoo.com',
+sevice:"Yahoo",
+secure:true,  
+    auth:{
+      user:"adi.exe2003@yahoo.com",
+      password:"Sahara@321"
+    }
+});
+
+
 const router =express.Router();
 router.get('/details',(req,res)=>{
     res.json({
@@ -63,5 +77,20 @@ res.json({
 console.log('err')
   )
 
+})
+router.post('/book',(req,res)=>{
+  const options = {
+    from: "outlook_ABCFE9699A6D84E2@outlook.com",
+    to:req.body.mail,
+    subject:`Room ${Math.random()*1000} in ${req.body.hotel} is booked`,
+    text:"Lorem 23"
+  }
+  transporter.sendMail(options,  function(err,info){
+    if (err){
+      console.log(err);
+      return 
+    }
+    console.log('sent' + info.response)
+  })
 })
 module.exports = router
