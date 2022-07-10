@@ -5,8 +5,9 @@ const nodemailer = require('nodemailer');
 
 
 const transporter = nodemailer.createTransport(   {
-  host:'mail.yahoo.com',
+  host:'stmp-relay.yahoo.com',
 sevice:"Yahoo",
+port:465,
 secure:true,  
     auth:{
       user:"adi.exe2003@yahoo.com",
