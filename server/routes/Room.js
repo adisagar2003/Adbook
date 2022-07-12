@@ -91,7 +91,8 @@ router.post('/book',(req,res)=>{
       console.log(err);
       return 
     }
-    console.log('sent' + info.response)
+    console.log('sent' + info.response);
+    
   })
 })
 module.exports = router

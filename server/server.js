@@ -17,16 +17,14 @@ server.use(cookieParser());
 dotenv.config();
 //Routing data
 const roomRoute = require('./routes/Room');
+const adminRoute = require('./routes/Admin')
 const profileRoute = require('./routes/User');
-
-const verifyToken = require('./verifyToken')
-
+const verifyToken = require('./verifyToken');
 server.use(cors());
-
 //Routes
-
 server.use('/room',roomRoute);
 server.use('/user',profileRoute);
+server.use('/admin',adminRoute);
 server.get('/',(req,res)=>{
  res.json({sample:'response'})
  res.send("a")
