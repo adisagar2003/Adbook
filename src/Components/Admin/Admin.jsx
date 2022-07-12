@@ -55,7 +55,7 @@ setSuccess(true)
     <input id="dropzone-file" type="file" class="hidden" onChange={handlePhoto} />
     <input type="text" onChange={(e)=>setName(e.target.value)} />
     <button  onSubmit={submitHandle} >Submit</button>
-
+<h1>Admin branch data</h1>
 </main>
 
 
