@@ -8,7 +8,7 @@ export default function useFetchAll(){
         axios.get('https://adbook-server.herokuapp.com/room/find').then((response)=>{
             setAllData(response)
             setAllLoaded(true)
-        }).catch((err)=>{
+        }).catch((err)=>{ //Error detection
             setResponse(err);
             
         })
