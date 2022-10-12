@@ -8,7 +8,7 @@ function Room_Details() {
   return (
     <div>
       Okay {params.id}
-        {loaded? <Room_Checkout name={hotel.data.hotels[0].name} price={hotel.data.hotels[0].price} photos={hotel.data.hotels[0].photos}  />:<h1>Loading....</h1>}
+        {loaded?. <Room_Checkout name={hotel.data.hotels[0].name} price={hotel.data.hotels[0].price} photos={hotel.data.hotels[0].photos}  />:<h1>Loading....</h1>}
         
    
 
